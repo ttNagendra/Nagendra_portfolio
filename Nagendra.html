@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todkar Nagendra - Front-End Developer Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJzL31r+sB8iN6Fv2qgWfD5gP4l/A/a6QJgW5V0hFpI1g5vF7n+N3z1E5c/g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Configure Tailwind to use Inter font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .section-padding {
+            padding: 4rem 1rem;
+        }
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 6rem 2rem;
+            }
+        }
+        /* Custom scrollbar for aesthetics */
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+        body::-webkit-scrollbar-thumb {
+            background-color: #3b82f6; /* Blue-500 */
+            border-radius: 4px;
+        }
+        body::-webkit-scrollbar-track {
+            background: #1f2937; /* Gray-800 */
+        }
+
+        /* Gradient for Hero Section */
+        #hero {
+            background: #111827; /* Dark background */
+            background-image: linear-gradient(to right bottom, #1f2937, #111827);
+        }
+
+        /* Project Card Hover Effect */
+        .project-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Keyframe for a subtle fade-in effect on load */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Apply animation to content sections */
+        .animated-section {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-sm border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-extrabold text-blue-400 hover:text-blue-300 transition duration-300">
+                Nagendra T.
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-300 hover:text-blue-400 transition duration-300">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-blue-400 transition duration-300">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-blue-400 transition duration-300">Projects</a>
+                <a href="#education" class="text-gray-300 hover:text-blue-400 transition duration-300">Experience</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg shadow-md transition duration-300">
+                Contact Me
+            </a>
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-blue-400 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-gray-800 border-t border-gray-700 transition duration-300 ease-in-out">
+            <div class="flex flex-col space-y-2 p-4">
+                <a href="#about" class="text-gray-300 hover:text-blue-400 py-2" onclick="toggleMobileMenu()">About</a>
+                <a href="#skills" class="text-gray-300 hover:text-blue-400 py-2" onclick="toggleMobileMenu()">Skills</a>
+                <a href="#projects" class="text-gray-300 hover:text-blue-400 py-2" onclick="toggleMobileMenu()">Projects</a>
+                <a href="#education" class="text-gray-300 hover:text-blue-400 py-2" onclick="toggleMobileMenu()">Experience</a>
+                <a href="#contact" class="text-gray-300 hover:text-blue-400 py-2" onclick="toggleMobileMenu()">Contact Me</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="section-padding text-center">
+        <div class="max-w-5xl mx-auto animated-section">
+            <div class="mb-4">
+                <img src="https://placehold.co/128x128/3B82F6/ffffff?text=TN" alt="Profile Picture Placeholder" class="rounded-full mx-auto border-4 border-blue-500 shadow-xl">
+            </div>
+            <p class="text-lg font-medium text-blue-400 mb-2">Hello, I'm</p>
+            <h1 class="text-5xl sm:text-7xl font-extrabold text-white mb-4 leading-tight">
+                Todkar Nagendra
+            </h1>
+            <h2 class="text-2xl sm:text-3xl font-semibold text-gray-400 mb-8">
+                Aspiring Front-End Developer | React.js & JavaScript
+            </h2>
+            <p class="text-xl max-w-3xl mx-auto text-gray-300">
+                Passionate about building **interactive and user-friendly web interfaces**. I possess foundational knowledge in HTML, CSS, JavaScript, and React.js, demonstrated through diverse academic projects and successful hackathon participation. Eager to contribute to innovative web development initiatives and continuously learn cutting-edge technologies.
+            </p>
+            <div class="flex justify-center space-x-6 mt-8">
+                <a href="YOUR_LINKEDIN_PROFILE" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300">
+                    <i class="fab fa-linkedin text-3xl"></i>
+                </a>
+                <a href="YOUR_GITHUB_PROFILE" target="_blank" class="text-gray-400 hover:text-blue-400 transition duration-300">
+                    <i class="fab fa-github-square text-3xl"></i>
+                </a>
+                <a href="mailto:nagendrat1533@gmail.com" class="text-gray-400 hover:text-blue-400 transition duration-300">
+                    <i class="fas fa-envelope text-3xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding bg-gray-800">
+        <div class="max-w-6xl mx-auto animated-section">
+            <h3 class="text-4xl font-bold text-center text-blue-400 mb-12">Technical Skills</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+
+                <!-- Frontend Skills -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
+                    <h4 class="text-2xl font-semibold text-white mb-4 flex items-center"><i class="fas fa-desktop mr-3 text-blue-400"></i>Frontend</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>**React.js**</li>
+                        <li>UI/UX Basics</li>
+                    </ul>
+                </div>
+
+                <!-- Backend & Databases Skills -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
+                    <h4 class="text-2xl font-semibold text-white mb-4 flex items-center"><i class="fas fa-server mr-3 text-blue-400"></i>Backend / DB</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Node.js, Express.js</li>
+                        <li>Python</li>
+                        <li>SQL (SQLite)</li>
+                        <li>MongoDB</li>
+                    </ul>
+                </div>
+
+                <!-- Tools & Concepts -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
+                    <h4 class="text-2xl font-semibold text-white mb-4 flex items-center"><i class="fas fa-tools mr-3 text-blue-400"></i>Tools & Concepts</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Git, **GitHub**</li>
+                        <li>VS Code, NPM, Vite</li>
+                        <li>Data Structures & Algorithms</li>
+                        <li>Java (Basic)</li>
+                    </ul>
+                </div>
+
+                <!-- Languages & Soft Skills -->
+                <div class="bg-gray-700 p-6 rounded-xl shadow-lg hover:shadow-2xl transition duration-300">
+                    <h4 class="text-2xl font-semibold text-white mb-4 flex items-center"><i class="fas fa-globe mr-3 text-blue-400"></i>Communication</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>English (Professional)</li>
+                        <li>Hindi (Fluent)</li>
+                        <li>Telugu (Native)</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-gray-900">
+        <div class="max-w-6xl mx-auto animated-section">
+            <h3 class="text-4xl font-bold text-center text-blue-400 mb-12">Featured Projects</h3>
+            <div class="grid md:grid-cols-2 gap-10">
+
+                <!-- Project 1: Weather App (Frontend Focus) -->
+                <div class="project-card bg-gray-800 p-6 rounded-2xl shadow-xl transition duration-300 border border-gray-700">
+                    <h4 class="text-2xl font-bold text-white mb-3">Real-Time Weather App</h4>
+                    <p class="text-sm text-blue-400 font-medium mb-4">Frontend Development | API Integration</p>
+                    <p class="text-gray-300 mb-4">
+                        A simple web application showing real-time weather information for user-selected cities. This project emphasizes responsive design and client-side JavaScript for fetching and displaying external data.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold mb-4">
+                        <span class="bg-blue-600/30 text-blue-300 px-3 py-1 rounded-full">HTML5/CSS3</span>
+                        <span class="bg-blue-600/30 text-blue-300 px-3 py-1 rounded-full">JavaScript</span>
+                        <span class="bg-blue-600/30 text-blue-300 px-3 py-1 rounded-full">OpenWeatherMap API</span>
+                        <span class="bg-blue-600/30 text-blue-300 px-3 py-1 rounded-full">Responsive Design</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="YOUR_LIVE_DEMO_LINK" target="_blank" class="flex items-center space-x-2 text-white bg-blue-600 hover:bg-blue-700 py-2 px-4 rounded-lg transition duration-300">
+                            <i class="fas fa-external-link-alt"></i> <span>Live Demo</span>
+                        </a>
+                        <a href="YOUR_GITHUB_LINK_FOR_WEATHER_APP" target="_blank" class="flex items-center space-x-2 text-gray-300 border border-gray-600 hover:bg-gray-700 py-2 px-4 rounded-lg transition duration-300">
+                            <i class="fab fa-github"></i> <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: Job Portal MVP (Full-Stack with UI Focus) -->
+                <div class="project-card bg-gray-800 p-6 rounded-2xl shadow-xl transition duration-300 border border-gray-700">
+                    <h4 class="text-2xl font-bold text-white mb-3">Talenty - Job Portal MVP</h4>
+                    <p class="text-sm text-blue-400 font-medium mb-4">Full-Stack Development | User Dashboards</p>
+                    <p class="text-gray-300 mb-4">
+                        A Minimal Viable Product for a job portal, implementing core features like user authentication, job search, application tracking, and an employer dashboard. Highlighted my ability to develop comprehensive UI flows.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold mb-4">
+                        <span class="bg-blue-600/30 text-blue-300 px-3 py-1 rounded-full">Vanilla JavaScript</span>
+                        <span class="bg-blue-600/30 text-blue-300 px-3 py-1 rounded-full">Flask (Python)</span>
+                        <span class="bg-blue-600/30 text-blue-300 px-3 py-1 rounded-full">SQLite</span>
+                        <span class="bg-blue-600/30 text-blue-300 px-3 py-1 rounded-full">Authentication</span>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="YOUR_LIVE_DEMO_LINK" target="_blank" class="flex items-center space-x-2 text-white bg-blue-600 hover:bg-blue-700 py-2 px-4 rounded-lg transition duration-300">
+                            <i class="fas fa-external-link-alt"></i> <span>Live Demo</span>
+                        </a>
+                        <a href="YOUR_GITHUB_LINK_FOR_JOB_PORTAL" target="_blank" class="flex items-center space-x-2 text-gray-300 border border-gray-600 hover:bg-gray-700 py-2 px-4 rounded-lg transition duration-300">
+                            <i class="fab fa-github"></i> <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3: ML-Driven Viability Analysis (Technical Depth) -->
+                <div class="project-card md:col-span-2 bg-gray-800 p-6 rounded-2xl shadow-xl transition duration-300 border border-gray-700">
+                    <h4 class="text-2xl font-bold text-white mb-3">Climate Change Effects on Agricultural Land Viability</h4>
+                    <p class="text-sm text-blue-400 font-medium mb-4">Machine Learning | Streamlit Interface</p>
+                    <p class="text-gray-300 mb-4">
+                        A system that predicts optimal crops based on environmental data using interpretable machine learning models (Logistic Regression, XGBoost). The web interface, built with **Streamlit**, includes user login/registration, demonstrating full application development lifecycle, from data science to deployment.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-semibold mb-4">
+                        <span class="bg-red-600/30 text-red-300 px-3 py-1 rounded-full">Python</span>
+                        <span class="bg-red-600/30 text-red-300 px-3 py-1 rounded-full">Streamlit (Frontend)</span>
+                        <span class="bg-red-600/30 text-red-300 px-3 py-1 rounded-full">XGBoost / ML</span>
+                        <span class="bg-red-600/30 text-red-300 px-3 py-1 rounded-full">User Auth System</span>
+                    </div>
+                    <div class="flex space-x-4">
+                         <a href="YOUR_GITHUB_LINK_FOR_ML_PROJECT" target="_blank" class="flex items-center space-x-2 text-gray-300 border border-gray-600 hover:bg-gray-700 py-2 px-4 rounded-lg transition duration-300">
+                            <i class="fab fa-github"></i> <span>GitHub</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <!-- Education & Achievements Section -->
+    <section id="education" class="section-padding bg-gray-800">
+        <div class="max-w-6xl mx-auto animated-section">
+            <h3 class="text-4xl font-bold text-center text-blue-400 mb-12">Education & Achievements</h3>
+
+            <!-- Education Timeline -->
+            <div class="relative mb-12">
+                <div class="hidden md:block absolute w-1 bg-gray-700 left-1/2 transform -translate-x-1/2 h-full top-0"></div>
+                
+                <!-- B.Tech -->
+                <div class="relative mb-8 md:flex justify-between items-center w-full">
+                    <div class="md:w-5/12 text-right md:pr-8">
+                        <p class="text-lg font-semibold text-white">G. Pullaiah College of Engineering</p>
+                        <p class="text-sm text-gray-400">Bachelor of Technology in CSE</p>
+                    </div>
+                    <div class="md:w-1/12 flex justify-center">
+                        <div class="w-4 h-4 bg-blue-500 rounded-full shadow-lg absolute md:relative top-0 left-0 md:left-auto"></div>
+                    </div>
+                    <div class="md:w-5/12 md:pl-8 mt-2 md:mt-0">
+                        <p class="text-blue-300 font-medium">June 2025 (Expected)</p>
+                        <p class="text-gray-300">CGPA: 8.17</p>
+                    </div>
+                </div>
+
+                <!-- Intermediate -->
+                <div class="relative mb-8 md:flex justify-between items-center w-full">
+                    <div class="md:w-5/12 md:pl-8 md:order-2">
+                        <p class="text-lg font-semibold text-white">Sri Chaitanya Junior College</p>
+                        <p class="text-sm text-gray-400">Intermediate in MPC</p>
+                    </div>
+                    <div class="md:w-1/12 flex justify-center md:order-1">
+                        <div class="w-4 h-4 bg-blue-500 rounded-full shadow-lg absolute md:relative top-0 left-0 md:left-auto"></div>
+                    </div>
+                    <div class="md:w-5/12 text-right md:pr-8 md:order-0 mt-2 md:mt-0">
+                        <p class="text-blue-300 font-medium">May 2021</p>
+                        <p class="text-gray-300">Percentage: 83.1%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements & Certifications -->
+            <div class="mt-16">
+                <h4 class="text-3xl font-bold text-center text-white mb-8">Competitive Edge</h4>
+                <div class="grid md:grid-cols-3 gap-6">
+                    
+                    <!-- Hackathon/Contest Achievements -->
+                    <div class="bg-gray-700 p-6 rounded-xl shadow-lg border-t-4 border-blue-500">
+                        <p class="text-xl font-semibold text-white mb-3">Hackathon Success</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-300">
+                            <li>**3rd Prize** in 8-hour Web Development Hackathon (Rapid Prototyping)</li>
+                            <li>**3rd Prize** in DOZO Coding Contest by MSMF</li>
+                            <li>**3rd Position** in College Code Crack Competition</li>
+                        </ul>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="bg-gray-700 p-6 rounded-xl shadow-lg border-t-4 border-blue-500">
+                        <p class="text-xl font-semibold text-white mb-3">Certifications</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-300">
+                            <li>CS50's Introduction to programming with Python (HARVARDX)</li>
+                            <li>Machine learning with Python (IBM)</li>
+                            <li>Java (Basic) - HackerRank</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Core Focus -->
+                    <div class="bg-gray-700 p-6 rounded-xl shadow-lg border-t-4 border-blue-500">
+                        <p class="text-xl font-semibold text-white mb-3">Core Focus</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-300">
+                            <li>Problem-Solving & Algorithms</li>
+                            <li>Interactive Web Interfaces</li>
+                            <li>UI/UX-driven Development</li>
+                            <li>Teamwork & Collaboration</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-gray-900 text-center">
+        <div class="max-w-4xl mx-auto animated-section">
+            <h3 class="text-4xl font-bold text-blue-400 mb-4">Let's Connect!</h3>
+            <p class="text-xl text-gray-300 mb-8">
+                I'm currently seeking new opportunities as a Front-End Developer. Feel free to reach out to discuss potential projects or roles.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="mailto:nagendrat1533@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition duration-300">
+                    <i class="fas fa-envelope mr-2"></i> Email Me
+                </a>
+                <a href="tel:+918688563229" class="bg-gray-700 hover:bg-gray-600 text-white font-medium py-3 px-8 rounded-lg shadow-lg transition duration-300">
+                    <i class="fas fa-phone mr-2"></i> Call Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-6 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            <p>&copy; 2024 Todkar Nagendra. All rights reserved.</p>
+            <p class="text-sm mt-2">Built with HTML & Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
+
+        // Optional: Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
